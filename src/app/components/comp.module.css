@@ -1,0 +1,120 @@
+.container {
+  display: flex;
+
+  background-color: var(--color-background);
+  border: .125rem solid var(--color-border);
+  border-radius: .5rem;
+}
+
+/* TOPBAR */
+.topBar {
+  align-items: center;
+
+  width: calc(100vw - 2rem);
+  height: 3.75rem;
+
+  padding: var(--margin-xsm);
+}
+
+.searchBar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 23rem;
+  height: 100%;
+  padding: var(--margin-xxsm);
+
+  background-color: var(--color-transparent);
+  border: 0.125rem solid var(--color-inactive);
+  border-radius: 100rem;
+}
+
+.searchBar-input {
+  background-color: var(--color-transparent);
+  color: var(--color-inactive);
+  border: none;
+}
+
+.searchBar-input:focus {
+  color: var(--color-foreground);
+  outline: none;
+}
+
+.searchBar-input::selection {
+  color: var(--color-foreground-contrast);
+  background-color: var(--color-primary-translucent);
+}
+
+/* MIDDLE CONT */
+.middle-container {
+  display: flex;
+  flex-direction: row;
+
+  gap: var(--margin-xsm);
+
+  width: 100%;
+  height: 100%;
+}
+
+/* SIDEBAR LEFT */
+.sidebar-left {
+  flex-direction: column;
+  align-items: center;
+  gap: var(--margin-xsm);
+
+  padding: var(--margin-xsm);
+
+  min-height: 5.5rem;
+  width: 15rem;
+  max-width: 15rem;
+}
+
+.nav-link {
+  width: 100%;
+
+  background-color: var(--color-background);
+}
+
+.nav-link > .nav-link-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  padding: var(--margin-xsm);
+  height: 3.5rem;
+
+  background-color: inherit;
+  border-radius: .5rem;
+
+  font-family: var(--font-inter);
+  font-weight: 500;
+
+  color: var(--color-foreground);
+  cursor: pointer;
+}
+
+/* CONTENT PANE */
+.content-pane {
+  flex-grow: 1;
+}
+
+/* SIDEBAR RIGHT */
+.sidebar-right {
+  flex-direction: row;
+  align-items: center;
+
+  min-height: 20rem;
+  width: 20rem;
+  max-width: 25rem;
+}
+
+/* BOTTOM BAR */
+.bottomBar {
+  flex-direction: row;
+
+  width: 100%;
+  height: 4.5rem;
+
+  padding: var(--margin-xsm)
+}

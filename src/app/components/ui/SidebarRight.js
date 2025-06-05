@@ -1,4 +1,4 @@
-import style from "./comp.module.css"
+import style from "./ui.module.css"
 
 export default function SidebarRight() {
   return (

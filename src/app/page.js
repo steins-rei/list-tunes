@@ -2,10 +2,11 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import global from "./globals.css"
 
-export default function Home() {
-  return (
-    <main>
+import About from "./pages/about/page";
+import Home from "./pages/home/page"
 
-    </main>
+export default function Page() {
+  return (
+    <Home />
   );
 }

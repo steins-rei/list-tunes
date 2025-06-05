@@ -1,15 +1,15 @@
 :root {
-  --color-off-white: #FEFAFD;
-
-  --color-background: var(--color-off-white);
-  --color-foreground: #151515;
+  --color-body-background: #E2E2E2;
+  --color-background: #F2F2F2;
+  --color-foreground: #444950;
   --color-foreground-contrast: #FBFAFA;
-  --color-foreground-title: #893C67;
-  --color-border: #C5C0C3;
+  --color-foreground-title: #787E84;
   --color-inactive: #D4D4D4;
-  --color-primary: #FF46AC;
+  --color-primary: #79AAE5;
+  --color-hover: #e4e4e4;
+  --color-pressed: #cccccc;
 
-  --color-primary-translucent: rgba(255, 70, 172, .4);
+  --color-primary-translucent: #79aae565;
   --color-transparent: rgba(0, 0, 0, 0);
   
   --margin-xxsm: .25rem;
@@ -17,8 +17,9 @@
   --margin-sm: 1rem;
   --margin-m: 2rem;
 
-  --font-size-m: clamp(.75rem, 2vw + 1rem, 1.5rem);
-  --font-size-lg: clamp(1.5rem, 2vw + 1rem, 3rem);
+  --font-size-sm: clamp(.75rem, 2vw + 1rem, 1rem);
+  --font-size-m: clamp(.75rem, 2vw + 1rem, 1.25rem);
+  --font-size-lg: clamp(1.5rem, 2vw + 1rem, 2rem);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -42,7 +43,7 @@ body {
 
   padding: var(--margin-xsm);
 
-  background: var(--color-background);
+  background: var(--color-body-background);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -53,16 +54,68 @@ body {
   margin: 0;
 
   transition: .2s ease-out;
+  font-family: var(--font-inter);
 }
 
-.raised {
-  box-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, .30), 
-              0rem 0rem 0rem rgba(0, 0, 0, .25) inset;
+*::selection {
+  background-color: var(--color-primary-translucent);
+  color: var(--color-foreground);
 }
 
-.lowered {
-    box-shadow: 0rem 0rem 0rem rgba(0, 0, 0, .30), 
-                0.1rem 0.1rem 0.2rem rgba(0, 0, 0, .30) inset;
+.hover-mask,
+.pressed-mask,
+.raise-mask {
+  position: relative;
+  z-index: 0;
+}
+
+.hover-mask::after {
+  content: '';
+  transition: 0.2s ease-out;
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: var(--color-hover);
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.hover-mask:hover::after {
+  opacity: .25;
+}
+
+.pressed-mask::after {
+  content: '';
+  transition: 0.2s ease-out;
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: var(--color-pressed);
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.hide-sb::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-sb {
+  scrollbar-width: none;
+}
+
+.title-text {
+  font-size: var(--font-size-lg);
+}
+
+.large-text {
+  font-size: var(--font-size-m)
+}
+
+.sub-large-text {
+  font-size: var(--font-size-sm);
+  color: red;
 }
 
 .noBorder {

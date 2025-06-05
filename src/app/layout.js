@@ -3,12 +3,17 @@ import { Inter } from "next/font/google";
 
 // CSS
 import "./globals.css";
-import "./components/comp.module.css"
+import "./components/ui/ui.module.css"
 
 // CONTAINERS
-import TopBar from "./components/topBar";
-import MiddleContainer from "./components/middleContainer";
-import BottomBar from "./components/bottomBar";
+import TopBar from "./components/ui/Topbar";
+import MiddleContainer from "./components/ui/MiddleContainer";
+import BottomBar from "./components/ui/BottomBar";
+
+// MIDDLE CONTAINERS
+import ContentPane from "./components/ui/ContentPane";
+import SidebarLeft from "./components/ui/SidebarLeft";
+import SidebarRight from "./components/ui/SidebarRight";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,14 +35,17 @@ export const metadata = {
   description: "Music Streaming website",
 };
 
-export default function RootLayout({children}) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.variable}`}>
         <TopBar />
-        <MiddleContainer />
+        <MiddleContainer>
+          <SidebarLeft />
+          <ContentPane>{children}</ContentPane>
+          <SidebarRight />
+        </MiddleContainer>
         <BottomBar />
-        {children}
       </body>
     </html>
   );
